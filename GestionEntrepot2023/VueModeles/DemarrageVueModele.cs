@@ -27,7 +27,7 @@ namespace GestionEntrepot2023.VueModeles
             Casier casier1 = new Casier().AjoutCasier("casier 01", 9);
             Casier casier2 = new Casier().AjoutCasier("casier 02", 9);
 
-            Colis colis1 = new Colis().AjoutColis("colis 01", typecolis2);
+            Colis colis1 = new Colis().AjoutColis("colis 01",typecolis2);
 
             entrepot1.LesCasiers.Add(casier1);
             entrepot1.LesCasiers.Add(casier2);
@@ -36,7 +36,10 @@ namespace GestionEntrepot2023.VueModeles
 
             casier1.LesColis.Add(colis1);
 
-
+            await App.Database.DeleteItemsAsync<Entrepot>();
+            await App.Database.DeleteItemsAsync<Casier>();
+            await App.Database.DeleteItemsAsync<Colis>();
+            await App.Database.DeleteItemsAsync<TypeColis>();
 
 
             await App.Database.SaveItemAsync<Entrepot>(entrepot1);
