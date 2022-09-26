@@ -5,8 +5,8 @@
              Title="DemarrageVue">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
+            Text="Gestion des entrepots"
+            VerticalOptions="Start" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

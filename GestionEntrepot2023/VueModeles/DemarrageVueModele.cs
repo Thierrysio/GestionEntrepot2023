@@ -36,10 +36,7 @@ namespace GestionEntrepot2023.VueModeles
 
             casier1.LesColis.Add(colis1);
 
-            await App.Database.DeleteItemsAsync<Entrepot>();
-            await App.Database.DeleteItemsAsync<Casier>();
-            await App.Database.DeleteItemsAsync<Colis>();
-            await App.Database.DeleteItemsAsync<TypeColis>();
+
 
 
             await App.Database.SaveItemAsync<Entrepot>(entrepot1);
