@@ -14,16 +14,15 @@ namespace GestionEntrepot2023.Modeles
 
         private int _Id;
         private string _description;
-
+        private int _taille;
 
         #endregion
 
         #region Constructeurs
 
-        public TypeColis(int id, string description)
+        public TypeColis()
         {
-            _Id = id;
-            _description = description;
+
         }
 
 
@@ -32,12 +31,19 @@ namespace GestionEntrepot2023.Modeles
 
         #region Getters/Setters
         [PrimaryKey, AutoIncrement]
-        public int Id { get => _Id; set => _Id = value; }
+        public int ID { get => _Id; set => _Id = value; }
         public string Description { get => _description; set => _description = value; }
+        public int Taille { get => _taille; set => _taille = value; }
         #endregion
 
         #region Methodes
-
+        public TypeColis AjoutTypeColis(string description,int taille)
+        {
+            this.ID = 0;
+            this.Description = description;
+            this.Taille = taille;
+            return this;    
+        }
         #endregion
     }
 }

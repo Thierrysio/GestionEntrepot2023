@@ -25,14 +25,9 @@ namespace GestionEntrepot2023.Modeles
 
         #region Constructeurs
 
-        public Casier(int id, string description, int nbreDePlaces, int ligne, int colonne)
+        public Casier()
         {
-            _id = id;
-            _description = description;
-            _NbreDePlaces = nbreDePlaces;
-            _lesColis = new List<Colis>();
-            _ligne = ligne;
-            _colonne = colonne;
+
         }
 
 
@@ -40,7 +35,7 @@ namespace GestionEntrepot2023.Modeles
 
         #region Getters/Setters
         [PrimaryKey, AutoIncrement]
-        public int Id { get => _id; set => _id = value; }
+        public int ID { get => _id; set => _id = value; }
         public string Description { get => _description; set => _description = value; }
         public int NbreDePlaces { get => _NbreDePlaces; set => _NbreDePlaces = value; }
         [OneToMany]
@@ -53,7 +48,15 @@ namespace GestionEntrepot2023.Modeles
         #endregion
 
         #region Methodes
+        public Casier AjoutCasier(string description,int nbreDePlaces)
+        {
+            this.ID = 0;
+            this.Description = description;
+            this.NbreDePlaces = nbreDePlaces;
+            this.LesColis = new List<Colis>();
 
+            return this;
+        }
         #endregion
     }
 }

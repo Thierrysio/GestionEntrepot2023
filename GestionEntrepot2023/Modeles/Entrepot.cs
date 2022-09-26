@@ -22,19 +22,16 @@ namespace GestionEntrepot2023.Modeles
 
         #region Constructeurs
 
-        public Entrepot(int id, string designation, int nbreDeCasiers)
+        public Entrepot()
         {
-            _id = id;
-            _designation = designation;
-            _nbreDeCasiers = nbreDeCasiers;
-            _lesCasiers = new List<Casier>() ;
+
         }
 
         #endregion
 
         #region Getters/Setters
         [PrimaryKey, AutoIncrement]
-        public int Id { get => _id; set => _id = value; }
+        public int ID { get => _id; set => _id = value; }
         public string Designation { get => _designation; set => _designation = value; }
         public int NbreDeCasiers { get => _nbreDeCasiers; set => _nbreDeCasiers = value; }
         [OneToMany]
@@ -43,6 +40,16 @@ namespace GestionEntrepot2023.Modeles
         #endregion
 
         #region Methodes
+
+        public  Entrepot AjoutEntrepot(string designation, int nbreDeCasiers)
+        {
+            this.ID = 0;
+            this.Designation = designation;
+            this.NbreDeCasiers = nbreDeCasiers;
+            this.LesCasiers = new List<Casier>();
+
+            return this;
+        }
 
         #endregion
     }

@@ -11,7 +11,7 @@ namespace GestionEntrepot2023
 
         //gestion database
 
-        public const string DatabaseFilename = "NomDeLaBase.db3";
+        public const string DatabaseFilename = "entrepots.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
             SQLite.SQLiteOpenFlags.ReadWrite |

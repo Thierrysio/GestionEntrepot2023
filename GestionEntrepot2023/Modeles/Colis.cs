@@ -24,23 +24,22 @@ namespace GestionEntrepot2023.Modeles
 
         #region Constructeurs
 
-        public Colis(int id = 0, string description = null, int ligne = 0, int colonne = 0, TypeColis leTypeColis = null)
+        public Colis()
         {
-            _id = id;
-            _description = description;
-            _ligne = ligne;
-            _colonne = colonne;
-            _leTypeColis = leTypeColis;
+        
         }
 
         #endregion
 
         #region Getters/Setters
         [PrimaryKey, AutoIncrement]
-        public int Id { get => _id; set => _id = value; }
+        public int ID { get => _id; set => _id = value; }
         public string Description { get => _description; set => _description = value; }
         public int Ligne { get => _ligne; set => _ligne = value; }
         public int Colonne { get => _colonne; set => _colonne = value; }
+        [ForeignKey(typeof(Casier))]
+        public int CasierId { get; set; }
+
         [ForeignKey(typeof(TypeColis))]
         public int TypeColisId { get; set; }
 
@@ -50,7 +49,13 @@ namespace GestionEntrepot2023.Modeles
         #endregion
 
         #region Methodes
-
+        public Colis AjoutColis(string description,TypeColis leTypeColis)
+        {
+            this.ID = 0;
+            this.Description = description;
+            this.LeTypeColis = leTypeColis;
+            return this;    
+        }
         #endregion
     }
 }
