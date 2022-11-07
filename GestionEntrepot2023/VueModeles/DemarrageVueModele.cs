@@ -56,7 +56,7 @@ namespace GestionEntrepot2023.VueModeles
             await App.Database.MiseAJourItemRelation(colis1);
 
             var mDB = App.Database.GetItemAvecRelations(colis1);
-            TypeColis nomMagasin = mDB.Result.LeTypeColis;
+            TypeColis resultat = mDB.Result.LeTypeColis;
 
             ObservableCollection<Casier> MaListe = App.Database.GetItemsAsync<Casier>();
 
